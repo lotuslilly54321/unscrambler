@@ -35,10 +35,22 @@ with open('words.txt') as dictionary:
         words[i] = words[i].lower()
 
 
+def lenright(words, scramble):
+    length = len(scramble)
+    possibilities = []
+    for i in words:
+        if len(i) == length:
+            possibilities.append(i)
+        else:
+            pass
+    return possibilities
+
+
 def word(scramble, maxlen):
     possible = translate(scramble, maxlen)
+    possibilities = lenright(words, scramble)
     for s in possible:
-        for c in words:
+        for c in possibilities:
             if c.startswith(s) == True and len(c) == len(scramble):
                 print(c)
 
